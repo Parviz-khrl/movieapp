@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="alert alert-primary" role="alert">
+            <h3>Search Results</h3>
+        </div>
+        <div class="card-container">
+            {% for each in results %}
+            <div class="card">
+                <a href="http://www.imdb.com/title/{{ each['imdbID'] }}">
+                    <img src="{{ each['Poster'] }}" class="card-img-top" id="card-img-top" alt="...">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title" id="title">{{ each['Title'] }}</h5>
+                    <p class="card-text" id="year"><span>Year:</span> {{ each['Year'] }}<br></p>
+                    <p id="type"><span>Type:</span> {{ each['Type'] }}<br></p>
+                    <p id="genre"><span>Genre:</span> {{ each['Genre'] }}<br></p>  <!-- Display genre -->
+                    <p id="details"><span>IMDb:</span> <a href="http://www.imdb.com/title/{{ each['imdbID'] }}">Details</a></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
+

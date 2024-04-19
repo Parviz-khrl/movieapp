@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<!-- Text "Find Your Favorites" -->
+<div class="container text-center mt-4 pt-5 pb-0"> 
+    <h1 class="text-white">Find Your Favorites</h1>
+</div>
+
+<!-- Content block -->
+<div class="container mt-1 pb-0">
+    <br>
+    <!-- Search form -->
+    <div class="search-box p-4 bg-danger rounded text-center mx-auto" style="width: 70%;"> 
+        <form action="/search" method="post" class="mb-3" style="width: 100%;"> 
+            <div class="form-group">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Movie or TV Series Name" required>
+            </div>
+            <div class="form-inline justify-content-center">
+                <div class="form-group mr-3">
+                    <label for="genre" class="mr-2">Genre:</label>
+                    <select id="genre" name="genre" class="form-control">
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                </div>
+                <div class="form-group mr-3">
+                    <label for="type" class="mr-2">Type:</label>
+                    <select id="type" name="type" class="form-control">
+                        <option value="movie">Movie</option>
+                        <option value="series">Series</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year" class="mr-2">Year:</label>
+                    <input type="number" id="year" name="year" class="form-control" min="1900" max="2099" step="1">
+                </div>
+            </div>
+            <button class="button-17" role="button">Search</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
