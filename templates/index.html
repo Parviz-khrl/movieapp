@@ -10,6 +10,20 @@
 <!-- Content block -->
 <div class="container mt-1 pb-0">
     <br>
+    <!-- A block to display flashed messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="main-alert alert-danger" role="alert">
+            <ul class="list-unstyled">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+
+
     <!-- Search form -->
     <div class="search-box p-4 bg-danger rounded text-center mx-auto" style="width: 70%;"> 
         <form action="/search" method="post" class="mb-3" style="width: 100%;"> 
@@ -40,7 +54,7 @@
                     <input type="number" id="year" name="year" class="form-control" min="1900" max="2099" step="1">
                 </div>
             </div>
-            <button class="button-17" role="button">Search</button>
+            <button class="button" role="button">Search</button>
         </form>
     </div>
 </div>
